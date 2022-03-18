@@ -1,6 +1,8 @@
 server:
   port: 8110 # 服务端口
-  address: 0.0.0.0
+  address: localhost
+coder:
+  allowedOrigins: http://localhost:9527
 spring:
   redis:
     host: 127.0.0.1

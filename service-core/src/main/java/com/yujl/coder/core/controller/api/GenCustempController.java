@@ -29,7 +29,6 @@ import java.util.Map;
  */
 @RestController
 @RequestMapping("/api/core/genCustemp")
-@CrossOrigin
 @Slf4j
 @RequiredPermission(PermissionConstants.LOGIN_AUTH)
 public class GenCustempController {

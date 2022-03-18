@@ -25,7 +25,6 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/core/genFields")
 @RequiredPermission(PermissionConstants.LOGIN_AUTH)
-@CrossOrigin
 public class GenFieldsController {
     @Resource
     private GenFieldsService genFieldsService;

@@ -6,9 +6,7 @@ import com.yujl.common.result.R;
 import com.yujl.common.result.ResponseEnum;
 import com.yujl.common.util.MD5;
 import com.yujl.coder.base.util.JwtUtils;
-import com.yujl.coder.core.mapper.UserAccountMapper;
 import com.yujl.coder.core.mapper.UserLoginRecordMapper;
-import com.yujl.coder.core.pojo.entity.UserAccount;
 import com.yujl.coder.core.pojo.entity.UserInfo;
 import com.yujl.coder.core.mapper.UserInfoMapper;
 import com.yujl.coder.core.pojo.entity.UserLoginRecord;
@@ -18,7 +16,6 @@ import com.yujl.coder.core.pojo.vo.UserInfoVO;
 import com.yujl.coder.core.service.UserInfoService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import lombok.extern.slf4j.Slf4j;
-import org.checkerframework.checker.units.qual.A;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -36,8 +33,6 @@ import javax.servlet.http.HttpServletRequest;
 @Service
 @Slf4j
 public class UserInfoServiceImpl extends ServiceImpl<UserInfoMapper, UserInfo> implements UserInfoService {
-    @Resource
-    private UserAccountMapper userAccountMapper;
     @Resource
     private UserLoginRecordMapper userLoginRecordMapper;
 
@@ -61,11 +56,6 @@ public class UserInfoServiceImpl extends ServiceImpl<UserInfoMapper, UserInfo> i
         //设置一张静态资源服务器上的头像图片
         userInfo.setHeadImg("https://srb-file.oss-cn-beijing.aliyuncs.com/avatar/07.jpg");
         baseMapper.insert(userInfo);
-
-        //创建会员账户
-        UserAccount userAccount = new UserAccount();
-        userAccount.setUserId(userInfo.getId());
-        userAccountMapper.insert(userAccount);
     }
 
     @Override

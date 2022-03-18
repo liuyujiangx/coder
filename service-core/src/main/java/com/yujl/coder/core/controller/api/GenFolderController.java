@@ -24,7 +24,6 @@ import javax.servlet.http.HttpServletRequest;
  */
 @RestController
 @RequestMapping("/api/core/genFolder")
-@CrossOrigin
 @RequiredPermission(PermissionConstants.LOGIN_AUTH)
 public class GenFolderController {
     @Resource
